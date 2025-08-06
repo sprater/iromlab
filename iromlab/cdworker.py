@@ -176,6 +176,7 @@ def processDisc(carrierData):
         carrierInfo['cdExtra'] = False
         carrierInfo['mixedMode'] = False
         carrierInfo['cdInteractive'] = False
+        carrierInfo['multiSession'] = False
     else:
         # Get disc info
         logging.info('*** Running cd-info ***')
@@ -367,7 +368,8 @@ def processDisc(carrierData):
                          str(carrierInfo['containsData']),
                          str(carrierInfo['cdExtra']),
                          str(carrierInfo['mixedMode']),
-                         str(carrierInfo['cdInteractive'])])
+                         str(carrierInfo['cdInteractive']),
+                         str(carrierInfo['multiSession'])])
 
     # Open batch manifest in append mode
     bm = open(config.batchManifest, "a", encoding="utf-8")
@@ -469,7 +471,8 @@ def cdWorker():
                                 'containsData',
                                 'cdExtra',
                                 'mixedMode',
-                                'cdInteractive'])
+                                'cdInteractive',
+                                'multiSession'])
 
         # Open batch manifest in append mode
         bm = open(config.batchManifest, "a", encoding="utf-8")
